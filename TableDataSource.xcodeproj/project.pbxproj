@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF083B6E1DB7C63C00DF8B86 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF083B6D1DB7C63C00DF8B86 /* Header.swift */; };
 		FF083B701DB7C67400DF8B86 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF083B6F1DB7C67400DF8B86 /* Footer.swift */; };
+		FF14F41E1DE4939A00FCECF4 /* TableDataSource.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FF14F41D1DE4939A00FCECF4 /* TableDataSource.podspec */; };
 		FF713D8D1DB15FB80001473E /* TableDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF713D821DB15FB80001473E /* TableDataSource.framework */; };
 		FF713D921DB15FB80001473E /* BaseOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF713D911DB15FB80001473E /* BaseOperationsTests.swift */; };
 		FF713DA31DB15FDB0001473E /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF713D9D1DB15FDB0001473E /* Container.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		FF083B6D1DB7C63C00DF8B86 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		FF083B6F1DB7C67400DF8B86 /* Footer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
+		FF14F41D1DE4939A00FCECF4 /* TableDataSource.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TableDataSource.podspec; sourceTree = "<group>"; };
 		FF713D821DB15FB80001473E /* TableDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF713D871DB15FB80001473E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF713D8C1DB15FB80001473E /* TableDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 		FF713D781DB15FB80001473E = {
 			isa = PBXGroup;
 			children = (
+				FF14F41D1DE4939A00FCECF4 /* TableDataSource.podspec */,
 				FF713D841DB15FB80001473E /* TableDataSource */,
 				FF713D901DB15FB80001473E /* TableDataSourceTests */,
 				FF713DAE1DB15FED0001473E /* Example */,
@@ -315,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF14F41E1DE4939A00FCECF4 /* TableDataSource.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

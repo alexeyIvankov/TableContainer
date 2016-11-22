@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 	s.tvos.deployment_target = "9.0"
 
 
-  s.source       = { :git => 'ssh://git@bitbucket.infotech.team:7999/il/tabledatasource.git', :branch => 'master'}
+  s.source       = { :git => 'https://github.com/alexeyIvankov/TableDataSource.git', :branch => 'master'}
 
   s.source_files  = "TableDataSource/**/*.{swift}"
  
