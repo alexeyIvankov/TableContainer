@@ -11,37 +11,33 @@ import UIKit
 
 public protocol RowType{}
 
-open class Row : Item
+open class Row : ContainerItem
 {
     open let id:String;
     open let sortKey:String;
     
-    fileprivate var _value:AnyObject?;
+    fileprivate var _model:Model<Any>?;
     fileprivate var _type:RowType?;
-    fileprivate var _height:CGFloat?;
-    
-    required public init(id:String, sortKey:String, value:AnyObject? = nil, type:RowType? = nil, height:CGFloat? = nil)
+    fileprivate var _cell:Cell?;
+
+    required public init(id:String, sortKey:String, model:Model<Any>? = nil, type:RowType? = nil, cell:Cell? = nil)
     {
         self.id = id;
         self.sortKey = sortKey;
-        self._value = value;
+        self._model = model;
         self._type = type;
-        self._height = height;
+        self._cell = cell;
     }
     
     open func type() -> RowType?{
         return self._type;
     }
     
-    open func value() -> AnyObject?{
-        return self._value;
+    open func model() -> Model<Any>? {
+        return self._model;
     }
     
-    open func height() -> CGFloat?{
-        return self._height;
-    }
-    
-    open func changeHeight(_ height:CGFloat){
-        self._height = height;
+    open func cell() -> Cell?{
+        return self._cell;
     }
 }

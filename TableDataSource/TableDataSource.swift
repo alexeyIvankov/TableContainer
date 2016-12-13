@@ -62,7 +62,7 @@ open class TableDataSource : Container
         return item;
     }
     
-    open func index(_ item: Item) -> Int?
+    open func index(_ item: ContainerItem) -> Int?
     {
         var index:Int?;
         

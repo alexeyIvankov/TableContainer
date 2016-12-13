@@ -10,7 +10,7 @@ import Foundation
 
 public protocol SectionType { }
 
-open class Section : Container, Item
+open class Section : Container, ContainerItem
 {
     public typealias TypeItem = Row;
     
@@ -55,7 +55,7 @@ open class Section : Container, Item
         return self._rows.item(index);
     }
     
-    open func index(_ item: Item) -> Int? {
+    open func index(_ item: ContainerItem) -> Int? {
         return self._rows.index(item);
     }
     

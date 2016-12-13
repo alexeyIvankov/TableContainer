@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Item {
+public protocol ContainerItem {
     
     var id:String { get }
     var sortKey:String { get }
