@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol ContainerItem :  class{
-    var meta_info:MetaInfoItem<Any> { get }
+    var meta_info:MetaInfoItem{ get }
 }
 
 

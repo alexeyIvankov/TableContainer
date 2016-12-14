@@ -8,15 +8,15 @@
 
 import Foundation
 
-public struct MetaInfoItem<Type>
+public struct MetaInfoItem
 {
     let id:String;
     let sort_key:String;
     
-    private(set) var type:Type?;
+    private(set) var type:String?;
     private(set) var model:Model<Any>?;
 
-    public init(id:String, sort_key:String, type:Type? = nil,  model:Model<Any>? = nil)
+    public init(id:String, sort_key:String, type:String? = nil,  model:Model<Any>? = nil)
     {
         self.id = id;
         self.sort_key = sort_key;

@@ -12,14 +12,14 @@ import Foundation
 open class Section : Container, ContainerItem
 {
     public typealias TypeItem = Row;
-    public let meta_info: MetaInfoItem<Any>
+    public let meta_info: MetaInfoItem
     
     open var header:Header?;
     open var footer:Footer?;
    
     fileprivate var _rows:ContainerTemplate<Row> = ContainerTemplate<Row>();
     
-    required public init(meta_info:MetaInfoItem<Any>, header:Header?, footer:Footer? )
+    required public init(meta_info:MetaInfoItem, header:Header?, footer:Footer? )
     {
         self.meta_info = meta_info;
         self.header = header;

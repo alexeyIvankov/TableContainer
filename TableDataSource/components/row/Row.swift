@@ -11,10 +11,10 @@ import UIKit
 
 open class Row : ContainerItem
 {
-    public let meta_info: MetaInfoItem<Any>
+    public let meta_info: MetaInfoItem
     private(set) var cell:Cell?;
     
-    required public init(meta_info:MetaInfoItem<Any>, cell:Cell? = nil)
+    required public init(meta_info:MetaInfoItem, cell:Cell? = nil)
     {
         self.meta_info = meta_info;
         self.cell = cell;
