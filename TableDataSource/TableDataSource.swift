@@ -24,52 +24,66 @@ open class TableDataSource : Container
         }
     }
     
+    func execute(operation:()->Void)
+    {
+        self.lock?.lock();
+        operation();
+        self.lock?.unlock();
+    }
+    
     //MARK: Container
-    open func add(_ item:Section)
+    open func add(item:Section)
     {
-        self.lock?.lock();
-            self.sections.add(item);
-        self.lock?.unlock();
+        self.execute {
+           self.sections.add(item: item);
+        }
     }
     
-    open func remove(_ id:String)
+    open func remove(id:String)
     {
-        self.lock?.lock();
-            self.sections.remove(id);
-        self.lock?.unlock();
+        self.execute {
+             self.sections.remove(id: id);
+        }
     }
     
-    open func search(_ id: String) -> Section?
+    open func remove(index:Int)
+    {
+        self.execute {
+            self.sections.remove(index: index);
+        }
+    }
+    
+    open func item(id: String) -> Section?
     {
         var item:Section? = nil;
         
-        self.lock?.lock();
-            item = self.sections.search(id);
-        self.lock?.unlock();
-        
+        self.execute {
+            item = self.sections.item(id:id);
+        }
+    
         return item;
     }
     
     
-    open func item(_ index: Int) -> Section?
+    open func item(index: Int) -> Section?
     {
         var item:Section? = nil;
         
-        self.lock?.lock();
-            item = self.sections.item(index);
-        self.lock?.unlock();
+        self.execute {
+            item = self.sections.item(index:index);
+        }
         
         return item;
     }
     
-    open func index(_ item: ContainerItem) -> Int?
+    open func index(item: ContainerItem) -> Int?
     {
         var index:Int?;
         
-        self.lock?.lock();
-            index = self.sections.index(item);
-        self.lock?.unlock();
-        
+        self.execute {
+            index = self.sections.index(item: item);
+        }
+    
         return index;
     }
     
@@ -77,9 +91,9 @@ open class TableDataSource : Container
     {
         var items:[Section] = [];
         
-        self.lock?.lock();
+        self.execute {
             items = self.sections.items();
-        self.lock?.unlock();
+        }
         
         return items;
     }
@@ -88,9 +102,9 @@ open class TableDataSource : Container
     {
         var count:Int = 0;
         
-        self.lock?.lock();
+        self.execute {
             count = self.sections.count();
-        self.lock?.unlock();
+        }
         
         return count;
     }

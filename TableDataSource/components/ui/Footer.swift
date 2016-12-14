@@ -11,23 +11,22 @@ import UIKit
 
 open class Footer
 {
-    fileprivate var _height:CGFloat!;
-    fileprivate var _title:String?;
+    public var height:CGFloat?;
+    private(set) var register_info:RegisterInfo<UITableViewHeaderFooterView.Type>?;
     
-    public required init(height:CGFloat, title:String? = nil){
-        self._height = height;
-        self._title = title;
+
+    public init(){
+    }
+
+    public init(height:CGFloat){
+        self.height = height;
     }
     
-    open func title() -> String?{
-        return self._title;
+    public init(nib_name:String, reuse_id:String){
+        self.register_info = RegisterInfo(nib_name: nib_name, reuse_id: reuse_id);
     }
     
-    open func height() -> CGFloat{
-        return self._height;
-    }
-    
-    open func changeHeight(_ height:CGFloat){
-        self._height = height;
+    public init(type:UITableViewHeaderFooterView.Type, reuse_id:String){
+        self.register_info = RegisterInfo(type: type, reuse_id: reuse_id);
     }
 }

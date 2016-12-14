@@ -8,16 +8,25 @@
 
 import Foundation
 
+public protocol ContainerItem :  class{
+    var meta_info:MetaInfoItem<Any> { get }
+}
+
 
 public protocol Container
 {
     associatedtype TypeItem : ContainerItem;
     
-    func add(_ item:TypeItem);
-    func item(_ index:Int) -> TypeItem?;
-    func index(_ item:ContainerItem) ->Int?
+    func add(item:TypeItem);
+    
+    func item(index:Int) -> TypeItem?;
+    func item(id:String) -> TypeItem?;
+    
+    func remove(index:Int);
+    func remove(id:String);
+    
+    func index(item:ContainerItem) ->Int?
     func items() -> [TypeItem]
-    func search(_ id:String) -> TypeItem?;
-    func remove(_ id:String);
+ 
     func count() -> Int;
 }

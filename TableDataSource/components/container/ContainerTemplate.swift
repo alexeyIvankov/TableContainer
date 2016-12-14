@@ -13,25 +13,30 @@ class ContainerTemplate<T:ContainerItem> : Container
 {
     typealias TypeItem = T;
     fileprivate var _items:Array<T> = Array<T>();
- 
     
-    //MARK: Container
-    func add(_ item:T)
+    func sort_items()
     {
-        self._items.append(item);
-        
         self._items.sort { (item1, item2) -> Bool in
-            return item1.sortKey < item2.sortKey
+            return item1.meta_info.sort_key < item2.meta_info.sort_key
         }
     }
     
-    func remove(_ id:String)
+    
+    //MARK: Container
+    func add(item:T)
+    {
+        self._items.append(item);
+        self.sort_items()
+
+    }
+    
+    func remove(id:String)
     {
         var removeIndex:Int?;
         
         for (index,value) in self._items.enumerated()
         {
-            if value.id == id
+            if value.meta_info.id == id
             {
                 removeIndex = index;
                 break;
@@ -42,13 +47,16 @@ class ContainerTemplate<T:ContainerItem> : Container
             self._items.remove(at: removeIndex!);
         }
         
-        self._items.sort { (item1, item2) -> Bool in
-            return  item1.sortKey < item2.sortKey
-        }
-        
+        self.sort_items();
     }
     
-    func item(_ index: Int) -> T?
+    func remove(index:Int)
+    {
+        self._items.remove(at: index);
+        self.sort_items();
+    }
+    
+    func item(index: Int) -> T?
     {
         var item:T? = nil;
         
@@ -60,13 +68,13 @@ class ContainerTemplate<T:ContainerItem> : Container
     }
     
     
-    func index(_ item:ContainerItem) ->Int?
+    func index(item:ContainerItem) ->Int?
     {
         var index:Int? = nil;
         
         for (_index,value) in self._items.enumerated()
         {
-            if value.id == item.id
+            if value.meta_info.id == item.meta_info.id
             {
                 index = _index;
                 break;
@@ -79,13 +87,13 @@ class ContainerTemplate<T:ContainerItem> : Container
         return self._items;
     }
     
-    func search(_ id: String) -> T?
+    func item(id: String) -> T?
     {
         var item:T? = nil;
         
         for (_,value) in self._items.enumerated()
         {
-            if value.id == id
+            if value.meta_info.id == id
             {
                 item = value;
                 break;
