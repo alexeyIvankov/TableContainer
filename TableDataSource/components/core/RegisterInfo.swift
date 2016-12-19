@@ -24,7 +24,7 @@ public struct RegisterInfo<T>
         self._type_registration = type_registration;
     }
     
-    func type() -> TypeRegistration<T>{
+    public func type() -> TypeRegistration<T>{
         return self._type_registration;
     }
 }
