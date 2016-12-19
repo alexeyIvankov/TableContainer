@@ -12,7 +12,7 @@ import UIKit
 open class Row : ContainerItem
 {
     public let meta_info: MetaInfoItem
-    private(set) var cell:Cell?;
+    public var cell:Cell?;
     
     required public init(meta_info:MetaInfoItem, cell:Cell? = nil)
     {
