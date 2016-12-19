@@ -13,8 +13,8 @@ public struct MetaInfoItem
     let id:String;
     let sort_key:String;
     
-    private(set) var type:String?;
-    private(set) var model:Model<Any>?;
+    public var type:String?;
+    public var model:Model<Any>?;
 
     public init(id:String, sort_key:String, type:String? = nil,  model:Model<Any>? = nil)
     {
