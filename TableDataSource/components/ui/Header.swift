@@ -13,18 +13,22 @@ open class Header
 {
     public var height:CGFloat?;
     public var title:String?;
-    private(set) var register_info:RegisterInfo<UITableViewHeaderFooterView.Type>?;
+    private var _register_info:RegisterInfo<UITableViewHeaderFooterView.Type>?;
     
     
     public init(){
     }
     
     public init(nib_name:String, reuse_id:String){
-        self.register_info = RegisterInfo(type_registration: TypeRegistration.nib(nib_name: nib_name, reuse_id: reuse_id))
+        self._register_info = RegisterInfo(type_registration: TypeRegistration.nib(nib_name: nib_name, reuse_id: reuse_id))
         
     }
     
     public init(type:UITableViewHeaderFooterView.Type, reuse_id:String){
-        self.register_info = RegisterInfo(type_registration: TypeRegistration.code(type: type, reuse_id: reuse_id))
+        self._register_info = RegisterInfo(type_registration: TypeRegistration.code(type: type, reuse_id: reuse_id))
+    }
+    
+    public func register_info() -> RegisterInfo<UITableViewHeaderFooterView.Type>?{
+        return self._register_info;
     }
 }
