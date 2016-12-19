@@ -18,11 +18,12 @@ open class Cell
     }
 
     public init(nib_name:String, reuse_id:String){
-        self.register_info = RegisterInfo(nib_name: nib_name, reuse_id: reuse_id);
+        self.register_info = RegisterInfo(type_registration: TypeRegistration.nib(nib_name: nib_name, reuse_id: reuse_id))
+        
     }
     
     public init(type:UITableViewCell.Type, reuse_id:String){
-        self.register_info = RegisterInfo(type: type, reuse_id: reuse_id);
+        self.register_info = RegisterInfo(type_registration: TypeRegistration.code(type: type, reuse_id: reuse_id))
     }
     
 }
