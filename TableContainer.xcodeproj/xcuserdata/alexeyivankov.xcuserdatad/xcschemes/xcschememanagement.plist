@@ -7,17 +7,12 @@
 		<key>Example.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>TableDataSource.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>TableDataSourceTests.xcscheme</key>
+		<key>TableContainer.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

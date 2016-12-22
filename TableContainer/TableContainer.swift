@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-open class TableDataSource : Container
+open class TableContainer : Container
 {
     public typealias TypeItem = Section;
     fileprivate var sections:ContainerTemplate<Section> = ContainerTemplate<Section>();

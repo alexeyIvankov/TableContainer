@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TableDataSource.xcodeproj">
+      location = "self:/Users/alexeyivankov/Desktop/new_folder/TableDataSource/TableContainer.xcodeproj">
    </FileRef>
 </Workspace>
