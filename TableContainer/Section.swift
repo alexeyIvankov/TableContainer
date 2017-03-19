@@ -9,7 +9,7 @@
 import Foundation
 
 
-open class Section : Container, ContainerItem
+open class Section : IContainer, IContainerItem
 {
     public typealias TypeItem = Row;
     public let meta_info: MetaInfoItem
@@ -48,7 +48,7 @@ open class Section : Container, ContainerItem
         return self._rows.item(index:index);
     }
     
-    open func index(item: ContainerItem) -> Int? {
+    open func index(item: IContainerItem) -> Int? {
         return self._rows.index(item: item);
     }
     

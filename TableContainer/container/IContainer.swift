@@ -8,14 +8,14 @@
 
 import Foundation
 
-public protocol ContainerItem :  class{
+public protocol IContainerItem :  class{
     var meta_info:MetaInfoItem{ get }
 }
 
 
-public protocol Container
+public protocol IContainer
 {
-    associatedtype TypeItem : ContainerItem;
+    associatedtype TypeItem : IContainerItem;
     
     func add(item:TypeItem);
     
@@ -25,7 +25,7 @@ public protocol Container
     func remove(index:Int);
     func remove(id:String);
     
-    func index(item:ContainerItem) ->Int?
+    func index(item:IContainerItem) ->Int?
     func items() -> [TypeItem]
  
     func count() -> Int;

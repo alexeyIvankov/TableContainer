@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-open class TableContainer : Container
+open class TableContainer : IContainer
 {
     public typealias TypeItem = Section;
     fileprivate var sections:ContainerTemplate<Section> = ContainerTemplate<Section>();
@@ -24,31 +24,31 @@ open class TableContainer : Container
         }
     }
     
-    func execute(operation:()->Void)
+    func threadSaveOperation(operation:()->Void)
     {
         self.lock?.lock();
-        operation();
+            operation();
         self.lock?.unlock();
     }
     
     //MARK: Container
     open func add(item:Section)
     {
-        self.execute {
+        self.threadSaveOperation {
            self.sections.add(item: item);
         }
     }
     
     open func remove(id:String)
     {
-        self.execute {
+        self.threadSaveOperation {
              self.sections.remove(id: id);
         }
     }
     
     open func remove(index:Int)
     {
-        self.execute {
+        self.threadSaveOperation {
             self.sections.remove(index: index);
         }
     }
@@ -57,7 +57,7 @@ open class TableContainer : Container
     {
         var item:Section? = nil;
         
-        self.execute {
+        self.threadSaveOperation {
             item = self.sections.item(id:id);
         }
     
@@ -69,18 +69,18 @@ open class TableContainer : Container
     {
         var item:Section? = nil;
         
-        self.execute {
+        self.threadSaveOperation {
             item = self.sections.item(index:index);
         }
         
         return item;
     }
     
-    open func index(item: ContainerItem) -> Int?
+    open func index(item: IContainerItem) -> Int?
     {
         var index:Int?;
         
-        self.execute {
+        self.threadSaveOperation {
             index = self.sections.index(item: item);
         }
     
@@ -91,7 +91,7 @@ open class TableContainer : Container
     {
         var items:[Section] = [];
         
-        self.execute {
+        self.threadSaveOperation {
             items = self.sections.items();
         }
         
@@ -102,7 +102,7 @@ open class TableContainer : Container
     {
         var count:Int = 0;
         
-        self.execute {
+        self.threadSaveOperation {
             count = self.sections.count();
         }
         

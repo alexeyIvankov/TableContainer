@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class Row : ContainerItem
+open class Row : IContainerItem
 {
     public let meta_info: MetaInfoItem
     public var cell:Cell?;

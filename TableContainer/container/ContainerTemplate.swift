@@ -9,7 +9,7 @@
 import Foundation
 
 
-class ContainerTemplate<T:ContainerItem> : Container
+class ContainerTemplate<T:IContainerItem> : IContainer
 {
     typealias TypeItem = T;
     fileprivate var _items:Array<T> = Array<T>();
@@ -68,7 +68,7 @@ class ContainerTemplate<T:ContainerItem> : Container
     }
     
     
-    func index(item:ContainerItem) ->Int?
+    func index(item:IContainerItem) ->Int?
     {
         var index:Int? = nil;
         
