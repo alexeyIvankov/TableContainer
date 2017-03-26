@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import TableDataSource
+@testable import TableContainer
 
 class BaseOperationsTest: XCTestCase {
     
@@ -24,63 +24,84 @@ class BaseOperationsTest: XCTestCase {
     
     func testAddSection()
     {
-        let dataSource:TableDataSource = TableDataSource(threadsafe:false);
+        let container:TableContainer = TableContainer(threadsafe:false);
         
         
         let count = 10;
         
         for index in 0..<count
         {
-            let section:Section = Section(id: String(count - index), sortKey: String(count - index))
-            dataSource.add(section);
+            let section:Section = Section(id: String(count - index), sortKey: String(count - index), type:String(count - index))
+            container.add(item: section);
         }
         
     
-        XCTAssertTrue(dataSource.count() == count)
+        XCTAssertTrue(container.count() == count)
     }
     
     
     func testRemoveSection()
     {
         let count = 10;
-        let dataSource:TableDataSource = TableDataSource(threadsafe:false);
+        let container:TableContainer = TableContainer(threadsafe:false);
         
         for index in 0..<count
         {
-            let section:Section = Section(id: String(index), sortKey: String(index))
-            dataSource.add(section);
+            let section:Section = Section(id: String(index), sortKey: String(index), type:String(index))
+            container.add(item: section);
         }
         
      
+        for index in (0..<count).reversed()
+        {
+            container.remove(index: index);
+        }
+        
+        XCTAssertTrue(container.count() == 0)
+        
+        
         for index in 0..<count
         {
-            dataSource.remove(String(index))
+            let section:Section = Section(id: String(index), sortKey: String(index), type:String(index))
+            container.add(item: section);
         }
         
         
-         XCTAssertTrue(dataSource.count() == 0)
+        for index in (0..<count).reversed()
+        {
+            container.remove(id: String(index));
+        }
+        
+         XCTAssertTrue(container.count() == 0)
     }
     
     func  testForeachSection()
     {
-        let dataSource:TableDataSource = TableDataSource(threadsafe:false);
+        let container:TableContainer = TableContainer(threadsafe:false);
         
         for index in 0..<10
         {
-            let section:Section = Section(id: String(index), sortKey: String(index))
-            dataSource.add(section);
+            let section:Section = Section(id: String(index), sortKey: String(index), type:String(index))
+            container.add(item: section);
         }
         
         for index in 0..<10
         {
-            let section:Section? = dataSource.item(index)
+            let section:Section? = container.item(index: index);
+            XCTAssertNotNil(section);
+        }
+        
+        
+        for index in 0..<10
+        {
+            let section:Section? = container.item(id: String(index));
             XCTAssertNotNil(section);
         }
     }
     
     func testMultiThreading()
     {
-        let dataSource:TableDataSource = TableDataSource(threadsafe:true);
+        let container:TableContainer = TableContainer(threadsafe:true);
         
         let expectation:XCTestExpectation  = self.expectation(description: "testMultiThreading");
         
@@ -97,16 +118,16 @@ class BaseOperationsTest: XCTestCase {
         {
             DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
                 
-                let section:Section = Section(id: String(index), sortKey: String(index))
-                dataSource.add(section);
+                let section:Section = Section(id: String(index), sortKey: String(index), type:String(index))
+                container.add(item: section);
                 
                 print("section added in the thread\(Thread.current)");
                 
 
                 DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async(execute: {
                     
-                    let section:Section = Section(id: String(index), sortKey: String(index))
-                    dataSource.add(section);
+                    let section:Section = Section(id: String(index), sortKey: String(index), type:String(index))
+                    container.add(item: section);
                     
                      print("section added in the thread\(Thread.current)");
                 })
@@ -116,8 +137,8 @@ class BaseOperationsTest: XCTestCase {
             
             DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async(execute: {
                 
-                let section:Section = Section(id: String(index), sortKey: String(index))
-                dataSource.add(section);
+                let section:Section = Section(id: String(index), sortKey: String(index), type:String(index))
+                container.add(item: section);
                 
                  print("section added in the thread\(Thread.current)");
             })
@@ -125,7 +146,7 @@ class BaseOperationsTest: XCTestCase {
             
             DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).async(execute: {
                 
-                _ = dataSource.search(String(index));
+                _ = container.item(index: index)
                 print("section readed in the thread\(Thread.current)");
             })
             

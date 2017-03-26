@@ -43,7 +43,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
             }
         }
         
-        if removeIndex != nil{
+        if removeIndex != nil && removeIndex! < self.items.count {
             self.items.remove(at: removeIndex!);
         }
         
@@ -52,8 +52,12 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     
     func remove(index:Int)
     {
-        self.items.remove(at: index);
-        self.sort_items();
+        if index < self.items.count
+        {
+            self.items.remove(at: index);
+            self.sort_items();
+        }
+        
     }
     
     func item(index: Int) -> T?

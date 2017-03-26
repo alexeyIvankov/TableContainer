@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B0BF37204BB6D2F6B01EF848977E8F8DDF659B9B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "10727CDE0BCDCF6CAEAE42C1D197C6BD55016238" : 9223372036854775807,
+    "B0BF37204BB6D2F6B01EF848977E8F8DDF659B9B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AEE1BC93-C089-4273-B7D6-CC0254B05C6A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "10727CDE0BCDCF6CAEAE42C1D197C6BD55016238" : "",
+    "B0BF37204BB6D2F6B01EF848977E8F8DDF659B9B" : "TableContainer\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TableContainer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TableContainer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alexeyIvankov\/FormConstructor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10727CDE0BCDCF6CAEAE42C1D197C6BD55016238"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alexeyIvankov\/TableContainer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0BF37204BB6D2F6B01EF848977E8F8DDF659B9B"
+    }
+  ]
+}

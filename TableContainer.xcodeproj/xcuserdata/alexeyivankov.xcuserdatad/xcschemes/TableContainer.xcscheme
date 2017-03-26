@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FF713D8B1DB15FB80001473E"
+               BuildableName = "TableContainerTests.xctest"
+               BlueprintName = "TableContainerTests"
+               ReferencedContainer = "container:TableContainer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FF713D811DB15FB80001473E"
+            BuildableName = "TableContainer.framework"
+            BlueprintName = "TableContainer"
+            ReferencedContainer = "container:TableContainer.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
