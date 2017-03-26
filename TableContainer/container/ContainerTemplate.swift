@@ -12,12 +12,12 @@ import Foundation
 class ContainerTemplate<T:IContainerItem> : IContainer
 {
     typealias TypeItem = T;
-    fileprivate var _items:Array<T> = Array<T>();
+    fileprivate var items:Array<T> = Array<T>();
     
     func sort_items()
     {
-        self._items.sort { (item1, item2) -> Bool in
-            return item1.meta_info.sort_key < item2.meta_info.sort_key
+        self.items.sort { (item1, item2) -> Bool in
+            return item1.sortKey < item2.sortKey
         }
     }
     
@@ -25,7 +25,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     //MARK: Container
     func add(item:T)
     {
-        self._items.append(item);
+        self.items.append(item);
         self.sort_items()
 
     }
@@ -34,9 +34,9 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     {
         var removeIndex:Int?;
         
-        for (index,value) in self._items.enumerated()
+        for (index,value) in self.items.enumerated()
         {
-            if value.meta_info.id == id
+            if value.id == id
             {
                 removeIndex = index;
                 break;
@@ -44,7 +44,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
         }
         
         if removeIndex != nil{
-            self._items.remove(at: removeIndex!);
+            self.items.remove(at: removeIndex!);
         }
         
         self.sort_items();
@@ -52,7 +52,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     
     func remove(index:Int)
     {
-        self._items.remove(at: index);
+        self.items.remove(at: index);
         self.sort_items();
     }
     
@@ -60,8 +60,8 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     {
         var item:T? = nil;
         
-        if  index >= 0 && index < self._items.count {
-            item = self._items[index];
+        if  index >= 0 && index < self.items.count {
+            item = self.items[index];
         }
     
         return item;
@@ -72,9 +72,9 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     {
         var index:Int? = nil;
         
-        for (_index,value) in self._items.enumerated()
+        for (_index,value) in self.items.enumerated()
         {
-            if value.meta_info.id == item.meta_info.id
+            if value.id == item.id
             {
                 index = _index;
                 break;
@@ -83,17 +83,17 @@ class ContainerTemplate<T:IContainerItem> : IContainer
         return index
     }
     
-    func items() -> [T] {
-        return self._items;
+    func allItems() -> [T] {
+        return self.items;
     }
     
     func item(id: String) -> T?
     {
         var item:T? = nil;
         
-        for (_,value) in self._items.enumerated()
+        for (_,value) in self.items.enumerated()
         {
-            if value.meta_info.id == id
+            if value.id == id
             {
                 item = value;
                 break;
@@ -106,7 +106,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     {
         var count:Int = 0;
         
-        count = self._items.count;
+        count = self.items.count;
         
         return count;
     }

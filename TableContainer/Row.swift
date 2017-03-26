@@ -11,12 +11,18 @@ import UIKit
 
 open class Row : IContainerItem
 {
-    public let meta_info: MetaInfoItem
+    public let id:String;
+    public let sortKey:String;
+    public var type:String;
     public var cell:Cell?;
+    public var model:AnyObject?;
     
-    required public init(meta_info:MetaInfoItem, cell:Cell? = nil)
+    required public init(id:String, sortKey:String, type:String, cell:Cell? = nil, model:AnyObject? = nil)
     {
-        self.meta_info = meta_info;
+        self.id = id;
+        self.sortKey = sortKey;
+        self.type = type;
         self.cell = cell;
+        self.model = model;
     }
 }

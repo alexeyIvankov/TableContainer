@@ -12,52 +12,58 @@ import Foundation
 open class Section : IContainer, IContainerItem
 {
     public typealias TypeItem = Row;
-    public let meta_info: MetaInfoItem
+   
+    public let id:String;
+    public let sortKey:String;
+    public var type:String;
     
     open var header:Header?;
     open var footer:Footer?;
-   
-    fileprivate var _rows:ContainerTemplate<Row> = ContainerTemplate<Row>();
     
-    required public init(meta_info:MetaInfoItem, header:Header?, footer:Footer? )
+    fileprivate var rows:ContainerTemplate<Row> = ContainerTemplate<Row>();
+
+    
+    required public init(id:String, sortKey:String, type:String,  header:Header? = nil, footer:Footer? = nil )
     {
-        self.meta_info = meta_info;
+        self.id = id;
+        self.sortKey = sortKey;
+        self.type = type;
         self.header = header;
         self.footer = footer;
     }
-
+    
     
     //MARK: Container
     open func add(item:Row){
-        self._rows.add(item: item);
+        self.rows.add(item: item);
     }
     
     open func remove(id:String){
-        self._rows.remove(id: id);
+        self.rows.remove(id: id);
     }
     
     open func remove(index: Int) {
-        self._rows.remove(index: index);
+        self.rows.remove(index: index);
     }
     
     open func item(id: String) -> Row? {
-        return self._rows.item(id:id);
+        return self.rows.item(id:id);
     }
     
     open func item(index: Int) -> Row? {
-        return self._rows.item(index:index);
+        return self.rows.item(index:index);
     }
     
     open func index(item: IContainerItem) -> Int? {
-        return self._rows.index(item: item);
+        return self.rows.index(item: item);
     }
     
-    open func items() -> [Row] {
-        return self._rows.items();
+    open func allItems() -> [Row] {
+        return self.rows.allItems();
     }
     
     open func count() -> Int{
-        return self._rows.count();
+        return self.rows.count();
     }
     
 }

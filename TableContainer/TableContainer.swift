@@ -87,12 +87,12 @@ open class TableContainer : IContainer
         return index;
     }
     
-    open func items() -> [Section]
+    open func allItems() -> [Section]
     {
         var items:[Section] = [];
         
         self.threadSaveOperation {
-            items = self.sections.items();
+            items = self.sections.allItems();
         }
         
         return items;

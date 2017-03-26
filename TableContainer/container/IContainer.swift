@@ -9,7 +9,10 @@
 import Foundation
 
 public protocol IContainerItem :  class{
-    var meta_info:MetaInfoItem{ get }
+    
+    var id:String { get }
+    var sortKey:String { get }
+    var type:String { get }
 }
 
 
@@ -26,7 +29,7 @@ public protocol IContainer
     func remove(id:String);
     
     func index(item:IContainerItem) ->Int?
-    func items() -> [TypeItem]
+    func allItems() -> [TypeItem]
  
     func count() -> Int;
 }
