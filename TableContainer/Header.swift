@@ -15,12 +15,9 @@ open class Header
     public var title:String?;
     private(set) var typeCreate:TypeCreate<UITableViewHeaderFooterView.Type>!;
     
-    public init(nibName:String, reuseId:String){
-        self.typeCreate = TypeCreate.loadFromNib(nibName: nibName, reuseId: reuseId);
+    public init(typeCreate:TypeCreate<UITableViewHeaderFooterView.Type>){
+        self.typeCreate = typeCreate;
         
     }
-    
-    public init(type:UITableViewHeaderFooterView.Type, reuseId:String){
-        self.typeCreate = TypeCreate.build(type: type, reuseId: reuseId);
-    }
+
 }

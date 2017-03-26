@@ -14,10 +14,10 @@ open class Row : IContainerItem
     public let id:String;
     public let sortKey:String;
     public var type:String;
-    public var cell:Cell?;
+    public var cell:Cell;
     public var model:AnyObject?;
     
-    required public init(id:String, sortKey:String, type:String, cell:Cell? = nil, model:AnyObject? = nil)
+    required public init(id:String, sortKey:String, type:String, cell:Cell, model:AnyObject? = nil)
     {
         self.id = id;
         self.sortKey = sortKey;

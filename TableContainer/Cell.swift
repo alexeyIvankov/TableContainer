@@ -14,12 +14,8 @@ open class Cell
     public var height:CGFloat?;
     private(set) var typeCreate:TypeCreate<UITableViewCell.Type>!;
     
-    public init(nibName:String, reuseId:String){
-        self.typeCreate = TypeCreate.loadFromNib(nibName: nibName, reuseId: reuseId);
+    public init(typeCreate:TypeCreate<UITableViewCell.Type>){
+        self.typeCreate = typeCreate;
         
-    }
-    
-    public init(type:UITableViewCell.Type, reuseId:String){
-        self.typeCreate = TypeCreate.build(type: type, reuseId: reuseId);
     }
 }
