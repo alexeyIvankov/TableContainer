@@ -8,11 +8,10 @@
 
 import Foundation
 
-public protocol IContainerItem :  class{
-    
+public protocol IContainerItem :  class
+{
     var id:String { get }
     var sortKey:String { get }
-    var type:String { get }
 }
 
 

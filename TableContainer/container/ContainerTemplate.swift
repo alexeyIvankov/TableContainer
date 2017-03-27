@@ -1,7 +1,4 @@
-//
-//  ContainerTemplate.swift
-//  ContainerTableView
-//
+
 //  Created by Alexey Ivankov on 14.10.16.
 //  Copyright © 2016 Alexey Ivankov. All rights reserved.
 //

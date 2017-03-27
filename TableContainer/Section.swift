@@ -1,7 +1,4 @@
-//
-//  Section.swift
-//  ContainerTableView
-//
+
 //  Created by Alexey Ivankov on 14.10.16.
 //  Copyright © 2016 Alexey Ivankov. All rights reserved.
 //
@@ -15,21 +12,15 @@ open class Section : IContainer, IContainerItem
    
     public let id:String;
     public let sortKey:String;
-    public var type:String;
-    
-    open var header:Header?;
-    open var footer:Footer?;
-    
+    public var type:TypeWrapper<Any>;
+        
     fileprivate var rows:ContainerTemplate<Row> = ContainerTemplate<Row>();
 
-    
-    required public init(id:String, sortKey:String, type:String,  header:Header? = nil, footer:Footer? = nil )
+    required public init(id:String, sortKey:String, type:TypeWrapper<Any>)
     {
         self.id = id;
         self.sortKey = sortKey;
         self.type = type;
-        self.header = header;
-        self.footer = footer;
     }
     
     
