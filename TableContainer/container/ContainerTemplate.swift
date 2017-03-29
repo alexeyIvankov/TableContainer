@@ -5,7 +5,6 @@
 
 import Foundation
 
-
 class ContainerTemplate<T:IContainerItem> : IContainer
 {
     typealias TypeItem = T;
@@ -24,13 +23,12 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     {
         self.items.append(item);
         self.sort_items()
-
     }
     
-    func remove(id:String)
+    func remove(id:T.TypeId)
     {
         var removeIndex:Int?;
-        
+    
         for (index,value) in self.items.enumerated()
         {
             if value.id == id
@@ -54,7 +52,6 @@ class ContainerTemplate<T:IContainerItem> : IContainer
             self.items.remove(at: index);
             self.sort_items();
         }
-        
     }
     
     func item(index: Int) -> T?
@@ -69,7 +66,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     }
     
     
-    func index(item:IContainerItem) ->Int?
+    func index(item:TypeItem) ->Int?
     {
         var index:Int? = nil;
         
@@ -88,7 +85,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
         return self.items;
     }
     
-    func item(id: String) -> T?
+    func item(id: TypeItem.TypeId) -> T?
     {
         var item:T? = nil;
         

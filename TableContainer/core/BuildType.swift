@@ -9,6 +9,6 @@ import UIKit
 public enum BuildType
 {
     case loadFromNib(nibName:String, reuseId:String)
-    case build(type:TypeWrapper<UIView.Type>, reuseId:String)
+    case build(type:UIView.Type, reuseId:String)
 }
 

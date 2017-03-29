@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 open class TableContainer : IContainer
 {
     public typealias TypeItem = Section;
@@ -39,7 +38,7 @@ open class TableContainer : IContainer
         }
     }
     
-    open func remove(id:String)
+    open func remove(id:TypeItem.TypeId)
     {
         self.threadSaveOperation {
              self.sections.remove(id: id);
@@ -53,7 +52,7 @@ open class TableContainer : IContainer
         }
     }
     
-    open func item(id: String) -> Section?
+    open func item(id: TypeItem.TypeId) -> Section?
     {
         var item:Section? = nil;
         
@@ -76,7 +75,7 @@ open class TableContainer : IContainer
         return item;
     }
     
-    open func index(item: IContainerItem) -> Int?
+    open func index(item: TypeItem) -> Int?
     {
         var index:Int?;
         

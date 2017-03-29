@@ -6,54 +6,53 @@
 import Foundation
 
 
-open class Section : IContainer, IContainerItem
+public struct Section : IContainer, IContainerItem
 {
+
     public typealias TypeItem = Row;
+    public typealias TypeId = String;
    
-    public let id:String;
+    public let id:TypeId;
     public let sortKey:String;
-    public var type:TypeWrapper<Any>;
-        
+    
     fileprivate var rows:ContainerTemplate<Row> = ContainerTemplate<Row>();
 
-    required public init(id:String, sortKey:String, type:TypeWrapper<Any>)
+    public init(id:TypeId, sortKey:String)
     {
         self.id = id;
         self.sortKey = sortKey;
-        self.type = type;
     }
     
-    
     //MARK: Container
-    open func add(item:Row){
+    public func add(item:Row){
         self.rows.add(item: item);
     }
     
-    open func remove(id:String){
+    public func remove(id:TypeId){
         self.rows.remove(id: id);
     }
     
-    open func remove(index: Int) {
+    public func remove(index: Int) {
         self.rows.remove(index: index);
     }
     
-    open func item(id: String) -> Row? {
+    public func item(id: TypeId) -> Row? {
         return self.rows.item(id:id);
     }
     
-    open func item(index: Int) -> Row? {
+    public func item(index: Int) -> Row? {
         return self.rows.item(index:index);
     }
     
-    open func index(item: IContainerItem) -> Int? {
+    public func index(item: TypeItem) -> Int? {
         return self.rows.index(item: item);
     }
     
-    open func allItems() -> [Row] {
+    public func allItems() -> [Row] {
         return self.rows.allItems();
     }
     
-    open func count() -> Int{
+    public func count() -> Int{
         return self.rows.count();
     }
     

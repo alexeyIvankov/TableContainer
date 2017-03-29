@@ -8,27 +8,21 @@
 
 import Foundation
 
-public protocol IContainerItem :  class
-{
-    var id:String { get }
-    var sortKey:String { get }
-}
-
-
 public protocol IContainer
 {
     associatedtype TypeItem : IContainerItem;
-    
+
     func add(item:TypeItem);
     
     func item(index:Int) -> TypeItem?;
-    func item(id:String) -> TypeItem?;
+    func item(id:TypeItem.TypeId) -> TypeItem?;
     
     func remove(index:Int);
-    func remove(id:String);
+    func remove(id:TypeItem.TypeId);
     
-    func index(item:IContainerItem) ->Int?
+    func index(item:TypeItem) ->Int?
     func allItems() -> [TypeItem]
  
     func count() -> Int;
 }
+

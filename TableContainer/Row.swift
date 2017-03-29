@@ -6,18 +6,18 @@
 import Foundation
 import UIKit
 
-open class Row : IContainerItem
+public struct Row : IContainerItem
 {
-    public let id:String;
+    public typealias TypeId = String;
+    
+    public let id:TypeId;
     public let sortKey:String;
-    public var type:TypeWrapper<Any>?;
     public var model:AnyObject?;
     
-    required public init(id:String, sortKey:String, type:TypeWrapper<Any>?, model:AnyObject? = nil)
+    public init(id:TypeId, sortKey:String,  model:AnyObject? = nil)
     {
         self.id = id;
         self.sortKey = sortKey;
-        self.type = type;
         self.model = model;
     }
 }
