@@ -5,10 +5,9 @@
 
 import Foundation
 
-class ContainerTemplate<T:IContainerItem> : IContainer
+class ContainerTemplate : IContainer
 {
-    typealias TypeItem = T;
-    fileprivate var items:Array<T> = Array<T>();
+    fileprivate var items:Array<IContainerItem> = Array<IContainerItem>();
     
     func sort_items()
     {
@@ -17,15 +16,14 @@ class ContainerTemplate<T:IContainerItem> : IContainer
         }
     }
     
-    
     //MARK: Container
-    func add(item:T)
+    func add(item:IContainerItem)
     {
         self.items.append(item);
         self.sort_items()
     }
     
-    func remove(id:T.TypeId)
+    func remove(id:Int)
     {
         var removeIndex:Int?;
     
@@ -54,9 +52,9 @@ class ContainerTemplate<T:IContainerItem> : IContainer
         }
     }
     
-    func item(index: Int) -> T?
+    func item(index: Int) -> IContainerItem?
     {
-        var item:T? = nil;
+        var item:IContainerItem? = nil;
         
         if  index >= 0 && index < self.items.count {
             item = self.items[index];
@@ -66,7 +64,7 @@ class ContainerTemplate<T:IContainerItem> : IContainer
     }
     
     
-    func index(item:TypeItem) ->Int?
+    func index(item:IContainerItem) ->Int?
     {
         var index:Int? = nil;
         
@@ -81,13 +79,13 @@ class ContainerTemplate<T:IContainerItem> : IContainer
         return index
     }
     
-    func allItems() -> [T] {
+    func allItems() -> [IContainerItem] {
         return self.items;
     }
     
-    func item(id: TypeItem.TypeId) -> T?
+    func item(id: Int) -> IContainerItem?
     {
-        var item:T? = nil;
+        var item:IContainerItem? = nil;
         
         for (_,value) in self.items.enumerated()
         {

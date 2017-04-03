@@ -10,18 +10,16 @@ import Foundation
 
 public protocol IContainer
 {
-    associatedtype TypeItem : IContainerItem;
-
-    func add(item:TypeItem);
+    func add(item:IContainerItem);
     
-    func item(index:Int) -> TypeItem?;
-    func item(id:TypeItem.TypeId) -> TypeItem?;
+    func item(index:Int) -> IContainerItem?;
+    func item(id:Int) -> IContainerItem?;
     
     func remove(index:Int);
-    func remove(id:TypeItem.TypeId);
+    func remove(id:Int);
     
-    func index(item:TypeItem) ->Int?
-    func allItems() -> [TypeItem]
+    func index(item:IContainerItem) ->Int?
+    func allItems() -> [IContainerItem]
  
     func count() -> Int;
 }

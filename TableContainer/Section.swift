@@ -8,27 +8,23 @@ import Foundation
 
 public struct Section : IContainer, IContainerItem
 {
-
-    public typealias TypeItem = Row;
-    public typealias TypeId = String;
-   
-    public let id:TypeId;
+    public let id:Int;
     public let sortKey:String;
     
-    fileprivate var rows:ContainerTemplate<Row> = ContainerTemplate<Row>();
+    fileprivate var rows:ContainerTemplate = ContainerTemplate();
 
-    public init(id:TypeId, sortKey:String)
+    public init(id:Int = 0, sortKey:String = "")
     {
         self.id = id;
         self.sortKey = sortKey;
     }
     
     //MARK: Container
-    public func add(item:Row){
+    public func add(item:IContainerItem){
         self.rows.add(item: item);
     }
     
-    public func remove(id:TypeId){
+    public func remove(id:Int){
         self.rows.remove(id: id);
     }
     
@@ -36,19 +32,19 @@ public struct Section : IContainer, IContainerItem
         self.rows.remove(index: index);
     }
     
-    public func item(id: TypeId) -> Row? {
+    public func item(id: Int) -> IContainerItem? {
         return self.rows.item(id:id);
     }
     
-    public func item(index: Int) -> Row? {
+    public func item(index: Int) -> IContainerItem? {
         return self.rows.item(index:index);
     }
     
-    public func index(item: TypeItem) -> Int? {
+    public func index(item: IContainerItem) -> Int? {
         return self.rows.index(item: item);
     }
     
-    public func allItems() -> [Row] {
+    public func allItems() -> [IContainerItem] {
         return self.rows.allItems();
     }
     

@@ -11,10 +11,8 @@ import UIKit
 
 open class TableContainer : IContainer
 {
-    public typealias TypeItem = Section;
-    fileprivate var sections:ContainerTemplate<Section> = ContainerTemplate<Section>();
+    fileprivate var sections:ContainerTemplate = ContainerTemplate();
     fileprivate var lock:NSRecursiveLock?;
-    
     
     public required init(threadsafe:Bool)
     {
@@ -31,14 +29,14 @@ open class TableContainer : IContainer
     }
     
     //MARK: Container
-    open func add(item:Section)
+    open func add(item:IContainerItem)
     {
         self.threadSaveOperation {
            self.sections.add(item: item);
         }
     }
     
-    open func remove(id:TypeItem.TypeId)
+    open func remove(id:Int)
     {
         self.threadSaveOperation {
              self.sections.remove(id: id);
@@ -52,9 +50,9 @@ open class TableContainer : IContainer
         }
     }
     
-    open func item(id: TypeItem.TypeId) -> Section?
+    open func item(id: Int) -> IContainerItem?
     {
-        var item:Section? = nil;
+        var item:IContainerItem? = nil;
         
         self.threadSaveOperation {
             item = self.sections.item(id:id);
@@ -64,9 +62,9 @@ open class TableContainer : IContainer
     }
     
     
-    open func item(index: Int) -> Section?
+    open func item(index: Int) -> IContainerItem?
     {
-        var item:Section? = nil;
+        var item:IContainerItem? = nil;
         
         self.threadSaveOperation {
             item = self.sections.item(index:index);
@@ -75,7 +73,7 @@ open class TableContainer : IContainer
         return item;
     }
     
-    open func index(item: TypeItem) -> Int?
+    open func index(item: IContainerItem) -> Int?
     {
         var index:Int?;
         
@@ -86,9 +84,9 @@ open class TableContainer : IContainer
         return index;
     }
     
-    open func allItems() -> [Section]
+    open func allItems() -> [IContainerItem]
     {
-        var items:[Section] = [];
+        var items:[IContainerItem] = [];
         
         self.threadSaveOperation {
             items = self.sections.allItems();

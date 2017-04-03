@@ -10,8 +10,6 @@ import Foundation
 
 public protocol IContainerItem
 {
-    associatedtype TypeId:Equatable;
-    
-    var id:TypeId { get }
+    var id:Int { get }
     var sortKey:String { get }
 }

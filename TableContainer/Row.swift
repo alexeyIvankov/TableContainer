@@ -8,13 +8,12 @@ import UIKit
 
 public struct Row : IContainerItem
 {
-    public typealias TypeId = String;
-    
-    public let id:TypeId;
+ 
+    public let id:Int;
     public let sortKey:String;
     public var model:AnyObject?;
     
-    public init(id:TypeId, sortKey:String,  model:AnyObject? = nil)
+    public init(id:Int = 0, sortKey:String = "",  model:AnyObject? = nil)
     {
         self.id = id;
         self.sortKey = sortKey;
