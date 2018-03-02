@@ -8,8 +8,7 @@ import UIKit
 
 public enum BuildType
 {
-    case loadFromNib(class: AnyClass, reuseId: String)
+    case loadFromClass(class: AnyClass, reuseId: String)
     case loadFromNib(nibName:String, reuseId:String)
-    case build(type:UIView.Type, reuseId:String)
 }
 
