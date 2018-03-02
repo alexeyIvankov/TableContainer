@@ -13,10 +13,10 @@ public protocol IContainer
     func add(item:IContainerItem);
     
     func item(index:Int) -> IContainerItem?;
-    func item(id:Int) -> IContainerItem?;
+    func item(id:String) -> IContainerItem?;
     
     func remove(index:Int);
-    func remove(id:Int);
+    func remove(id:String);
     
     func index(item:IContainerItem) ->Int?
     func allItems() -> [IContainerItem]

@@ -8,12 +8,13 @@ import Foundation
 
 public struct Section : IContainer, IContainerItem
 {
-    public let id:Int;
-    public let sortKey:String;
+    public let id:String?;
+    public let sortKey:String?;
     
     fileprivate var rows:ContainerTemplate = ContainerTemplate();
 
-    public init(id:Int = 0, sortKey:String = "")
+    public init(id:String? = nil,
+                sortKey:String? = nil)
     {
         self.id = id;
         self.sortKey = sortKey;
@@ -24,7 +25,7 @@ public struct Section : IContainer, IContainerItem
         self.rows.add(item: item);
     }
     
-    public func remove(id:Int){
+    public func remove(id:String){
         self.rows.remove(id: id);
     }
     
@@ -32,7 +33,7 @@ public struct Section : IContainer, IContainerItem
         self.rows.remove(index: index);
     }
     
-    public func item(id: Int) -> IContainerItem? {
+    public func item(id: String) -> IContainerItem? {
         return self.rows.item(id:id);
     }
     

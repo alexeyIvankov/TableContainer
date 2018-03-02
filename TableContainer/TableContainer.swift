@@ -36,7 +36,7 @@ open class TableContainer : IContainer
         }
     }
     
-    open func remove(id:Int)
+    open func remove(id:String)
     {
         self.threadSaveOperation {
              self.sections.remove(id: id);
@@ -50,7 +50,7 @@ open class TableContainer : IContainer
         }
     }
     
-    open func item(id: Int) -> IContainerItem?
+    open func item(id: String) -> IContainerItem?
     {
         var item:IContainerItem? = nil;
         

@@ -12,7 +12,13 @@ class ContainerTemplate : IContainer
     func sort_items()
     {
         self.items.sort { (item1, item2) -> Bool in
-            return item1.sortKey < item2.sortKey
+            
+            if item1.sortKey != nil && item2.sortKey != nil{
+                return item1.sortKey! < item2.sortKey!
+            }
+            else{
+                return false
+            }
         }
     }
     
@@ -23,13 +29,13 @@ class ContainerTemplate : IContainer
         self.sort_items()
     }
     
-    func remove(id:Int)
+    func remove(id:String)
     {
         var removeIndex:Int?;
     
         for (index,value) in self.items.enumerated()
         {
-            if value.id == id
+            if value.id != nil && value.id! == id
             {
                 removeIndex = index;
                 break;
@@ -70,7 +76,9 @@ class ContainerTemplate : IContainer
         
         for (_index,value) in self.items.enumerated()
         {
-            if value.id == item.id
+            if value.id != nil &&
+                item.id != nil &&
+                value.id == item.id
             {
                 index = _index;
                 break;
@@ -83,13 +91,14 @@ class ContainerTemplate : IContainer
         return self.items;
     }
     
-    func item(id: Int) -> IContainerItem?
+    func item(id: String) -> IContainerItem?
     {
         var item:IContainerItem? = nil;
         
         for (_,value) in self.items.enumerated()
         {
-            if value.id == id
+            if value.id != nil &&
+                value.id == id
             {
                 item = value;
                 break;
