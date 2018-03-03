@@ -35,7 +35,7 @@ class ContainerTemplate : IContainer
     
         for (index,value) in self.items.enumerated()
         {
-            if value.id != nil && value.id! == id
+            if value.id == id
             {
                 removeIndex = index;
                 break;
@@ -76,9 +76,7 @@ class ContainerTemplate : IContainer
         
         for (_index,value) in self.items.enumerated()
         {
-            if value.id != nil &&
-                item.id != nil &&
-                value.id == item.id
+            if value.id == item.id
             {
                 index = _index;
                 break;
@@ -97,8 +95,7 @@ class ContainerTemplate : IContainer
         
         for (_,value) in self.items.enumerated()
         {
-            if value.id != nil &&
-                value.id == id
+            if value.id == id
             {
                 item = value;
                 break;

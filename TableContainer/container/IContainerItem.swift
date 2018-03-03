@@ -10,6 +10,6 @@ import Foundation
 
 public protocol IContainerItem
 {
-    var id:String? { get }
+    var id:String { get }
     var sortKey:String? { get }
 }

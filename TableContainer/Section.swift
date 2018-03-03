@@ -8,12 +8,12 @@ import Foundation
 
 public struct Section : IContainer, IContainerItem
 {
-    public let id:String?;
+    public let id:String;
     public let sortKey:String?;
     
     fileprivate var rows:ContainerTemplate = ContainerTemplate();
 
-    public init(id:String? = nil,
+    public init(id:String = "",
                 sortKey:String? = nil)
     {
         self.id = id;

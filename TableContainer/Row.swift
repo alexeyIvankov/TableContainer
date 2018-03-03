@@ -9,11 +9,11 @@ import UIKit
 public struct Row : IContainerItem
 {
  
-    public let id:String?;
+    public let id:String;
     public let sortKey:String?;
     public var model:AnyObject?;
     
-    public init(id:String? = nil,
+    public init(id:String = "",
                 sortKey:String? = nil,
                 model:AnyObject? = nil)
     {
