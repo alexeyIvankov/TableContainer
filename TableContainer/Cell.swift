@@ -14,4 +14,5 @@ public struct Cell {
     public var nibName:String?
     public var loadClass:AnyClass?
     
+    public init(){}
 }
