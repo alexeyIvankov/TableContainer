@@ -14,12 +14,12 @@ public struct Cell {
     public var nibName:String?
     public var loadClass:AnyClass?
     
-    public init(reuseId:String?, nibName:String?){
+    public init(reuseId:String, nibName:String){
         self.reuseId = reuseId
         self.nibName = nibName
     }
     
-    public init(reuseId:String?, loadClass:AnyClass?){
+    public init(reuseId:String, loadClass:AnyClass){
         self.reuseId = reuseId
         self.loadClass = loadClass
     }
