@@ -10,7 +10,7 @@ import Foundation
 
 public struct Cell {
     
-    public var reuseId:String?
+    public var reuseId:String
     public var nibName:String?
     public var loadClass:AnyClass?
     
